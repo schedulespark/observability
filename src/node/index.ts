@@ -1,0 +1,11 @@
+export { captureFastifyErrors } from "./fastify.js";
+export { init } from "./client.js";
+export { createPinoLogStream } from "./logs.js";
+export type { PinoLogStreamOptions } from "./logs.js";
+export type { MetricsApi } from "./metrics.js";
+export { instrumentPrismaClient } from "./prisma.js";
+export type { InstrumentPrismaClientOptions } from "./prisma.js";
+export { redactSecrets } from "./redact.js";
+export type { ObservabilityClient, ObservabilityClientOptions } from "./client.js";
+export type { Breadcrumb, BreadcrumbInput, LogEntry, LogLevel, MetricKind } from "../core/index.js";
+export type { Span, Transaction } from "./tracing.js";

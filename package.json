@@ -1,0 +1,101 @@
+{
+  "name": "@schedulespark/observability",
+  "version": "0.0.1-beta-3-0-0",
+  "description": "Self-hosted, Sentry-style error tracking and dashboard that stores captured events in your own Postgres database.",
+  "license": "MIT",
+  "author": "Stephen M",
+  "type": "module",
+  "files": [
+    "CHANGELOG.md",
+    "dist",
+    "docs",
+    "README.md",
+    "SECURITY_REVIEW.md",
+    "LICENSE"
+  ],
+  "bin": {
+    "schedulespark-observability": "./dist/cli/bin.js"
+  },
+  "exports": {
+    "./alerts": {
+      "types": "./dist/alerts/index.d.ts",
+      "import": "./dist/alerts/index.js"
+    },
+    "./core": {
+      "types": "./dist/core/index.d.ts",
+      "import": "./dist/core/index.js"
+    },
+    "./storage": {
+      "types": "./dist/storage/index.d.ts",
+      "import": "./dist/storage/index.js"
+    },
+    "./node": {
+      "types": "./dist/node/index.d.ts",
+      "import": "./dist/node/index.js"
+    },
+    "./browser": {
+      "types": "./dist/browser/index.d.ts",
+      "import": "./dist/browser/index.js"
+    },
+    "./dashboard": {
+      "types": "./dist/dashboard/index.d.ts",
+      "import": "./dist/dashboard/index.js"
+    },
+    "./cli": {
+      "types": "./dist/cli/index.d.ts",
+      "import": "./dist/cli/index.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/schedulespark/observability.git"
+  },
+  "keywords": [
+    "observability",
+    "error-tracking",
+    "sentry",
+    "self-hosted",
+    "fastify",
+    "postgres"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "tag": "beta"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.json",
+    "lint": "eslint src --max-warnings=0 && tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.test.json"
+  },
+  "dependencies": {
+    "@jridgewell/trace-mapping": "^0.3.31",
+    "nodemailer": "^9.0.3",
+    "pg": "^8.16.3",
+    "zod": "^4.4.3"
+  },
+  "peerDependencies": {
+    "@prisma/client": "^7.8.0",
+    "fastify": "^5.10.0"
+  },
+  "peerDependenciesMeta": {
+    "@prisma/client": {
+      "optional": true
+    },
+    "fastify": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@jridgewell/gen-mapping": "^0.3.13",
+    "@types/jsdom": "^28.0.3",
+    "@types/node": "^26.0.1",
+    "@types/nodemailer": "^8.0.1",
+    "@types/pg": "^8.16.0",
+    "fastify": "^5.10.0",
+    "jsdom": "^29.1.1",
+    "pino": "^10.3.1",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.10"
+  }
+}
